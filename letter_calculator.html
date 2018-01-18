@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      var countLetters = function(str, c) { //counts the number of letters in a string
+        var count = 0;
+        for (var i = 0; i < str.length; i++) {
+          if (str[i].match(c)) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      console.log(countLetters("SALLY", 'L'));
+      console.log(countLetters("KAS VAIN! SANOI KASVAIN JA KASVOI VAIN.", 'K'));
+
+    </script>
+  </head>
+</html>
