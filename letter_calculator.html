@@ -3,7 +3,7 @@
   <head>
     <meta charset = "utf-8">
     <script>
-      var countLetters = function(str, c) { //counts the number of letters in a string
+      var countLetters = function(str, c) { // counts the number of letters in string
         var count = 0;
         for (var i = 0; i < str.length; i++) {
           if (str[i].match(c)) {
@@ -12,10 +12,8 @@
         }
         return count;
       }
-
-      console.log(countLetters("SALLY", 'L'));
-      console.log(countLetters("KAS VAIN! SANOI KASVAIN JA KASVOI VAIN.", 'K'));
-
+      console.log(countLetters("SALLY", 'L')); // 2
+      console.log(countLetters("KAS VAIN! SANOI KASVAIN JA KASVOI VAIN.", 'K')); // 3
     </script>
   </head>
 </html>
