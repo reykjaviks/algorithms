@@ -3,26 +3,21 @@
   <head>
     <meta charset = "utf-8">
     <script>
-      var sort = function(array) {
-        for (var j = 1; j < array.length; j++) {
-          var key = array[j];
-          var i = j - 1;
-          while (i >= 0 && array[i] > key) { // flip > to < for descending order
-            array[i + 1] = array[i];
-            i = i - 1;
-            array[i + 1] = key;
+      const sort = (a) => {
+        for (let i = 0; i < a.length; i++) {
+          let key = a[i],
+              j = i - 1
+          while (j >= 0 && a[j] > key) { // flip > for descending order
+            a[j + 1] = a[j]
+            j = j - 1
+            a[j + 1] = key
           }
         }
       }
 
-      var hand = [5, 2, 4, 6, 1, 3];
-
-      sort(hand);
-
-      //print sorted array
-      for (var i = 0; i < hand.length; i++) {
-        console.log(hand[i]);
-      }
+      const hand = [5, 2, 4, 6, 1, 3]
+      sort(hand)
+      console.log(hand)
 
     </script>
   </head>
