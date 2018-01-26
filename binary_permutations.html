@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      // Fills an array with permutations of size n
+      const genPerms = (arr, s, n) => {
+        if (n === 0) arr.push(s)
+        else {
+          genPerms(arr, s + "0", n - 1) // left side
+          genPerms(arr, s + "1", n - 1) // right side
+        }
+      }
+
+      // Returns an array of binary numbers of size n
+      const binsOf = (n) => {
+        const a = []
+        genPerms(a, "", n)
+        return a
+      }
+
+      console.log(binsOf(2))
+      console.log(binsOf(3))
+      console.log(binsOf(4))
+
+    </script>
+  </head>
+</html>
