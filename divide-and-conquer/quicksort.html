@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      const sort = (arr) => {
+        quickSort(arr, 0, arr.length - 1)
+      }
+
+      const quickSort = (arr, start, end) => {
+        if (start < end) {
+          let pIndex = partition(arr, start, end)
+          quickSort(arr, start, pIndex - 1)
+          quickSort(arr, pIndex + 1, end)
+        }
+      }
+
+      const partition = (arr, start, end) => {
+          const pivot = arr[end]
+          let pIndex = start
+          let temp
+
+          for (let i = start; i < end; i++) {
+              if (arr[i] <= pivot) {
+                temp = arr[i]
+                arr[i] = arr[pIndex]
+                arr[pIndex] = temp
+                pIndex++
+              }
+          }
+          temp = arr[pIndex]
+          arr[pIndex] = arr[end]
+          arr[end] = temp
+          return pIndex
+      }
+
+      const arr = [1, 5, 2, 10, 3, 15]
+      sort(arr)
+      console.log(arr)
+
+    </script>
+  </head>
+</html>
