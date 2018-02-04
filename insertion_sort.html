@@ -4,12 +4,12 @@
     <meta charset = "utf-8">
     <script>
       const sort = (a) => {
-        for (let i = 0; i < a.length; i++) {
+        for (let i = 1; i < a.length; i++) { // n kertaa
           let key = a[i],
               j = i - 1
           while (j >= 0 && a[j] > key) { // flip > for descending order
             a[j + 1] = a[j]
-            j = j - 1
+            j--
             a[j + 1] = key
           }
         }
