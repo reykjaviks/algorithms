@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      function Queue(size) {
+        this.head = 0
+        this.tail = 0
+        this.n = size
+        this.table = new Array(this.n)
+
+        this.enqueue = (x) => {
+          this.table[this.tail] = x
+          this.tail++
+          if (this.tail === this.n) this.tail = 0
+        }
+
+        this.dequeue = () => {
+          let x = this.table[this.head]
+          this.head++
+          if (this.head === this.n) this.head = 0
+          return x
+        }
+
+        this.empty = () => {
+          return this.head === this.tail
+        }
+
+        this.full = () => {
+          let tailNext = this.tail + 1
+          if (tailNext === this.n) tailNext = 0
+          return this.head === tailNext
+        }
+      }
+
+      let q = new Queue(5)
+
+      q.enqueue(1)
+      q.enqueue(10)
+      q.enqueue(100)
+
+      console.log(q.table)
+
+      console.log(q.dequeue())
+      console.log(q.dequeue())
+
+      console.log(q.table)
+
+      q.enqueue(5)
+      q.enqueue(5)
+      q.enqueue(5)
+
+      console.log(q.table)
+
+    </script>
+  </head>
+</html>
