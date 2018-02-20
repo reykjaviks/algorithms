@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      function Node(key, next, prev) {
+        this.key = key
+        this.next = next
+        this.prev = prev
+      }
+
+      function LinkedList() {
+        this.head = null
+
+        this.insert = (target) => {
+          let x = new Node(target, this.head, null)
+          if (this.head != null) {
+            this.head.prev = x
+          }
+          this.head = x
+        }
+
+        this.search = (target) => {
+          let p = this.head
+          while(p != null && target != p.key) {
+            p = p.next
+          }
+          return p
+        }
+
+        this.delete = (target) => {
+          let prev = target.prev, next = target.next
+          if (prev != null) {
+            prev.next = next
+          }
+        }
+      }
+
+      let list = new LinkedList()
+
+      list.insert(10)
+      list.insert(100)
+      list.insert(1000)
+
+      console.log(list.head)
+      console.log(list.head.next)
+      console.log(list.head.prev)
+
+    </script>
+  </head>
+</html>
