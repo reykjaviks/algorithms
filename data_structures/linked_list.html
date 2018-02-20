@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      function Node(key, next) {
+        this.key = key
+        this.next = next
+      }
+
+      function Stack() {
+        this.top = null
+
+        this.push = (x) => {
+          let node = new Node(x, this.top)
+          this.top = node
+        }
+
+        this.pop = () => {
+          let x = this.top
+          this.top = x.next
+          return x.key
+        }
+
+        this.empty = () => {
+          return this.top === null
+        }
+      }
+
+      let stack = new Stack()
+
+      stack.push(1)
+      stack.push(10)
+      stack.push(100)
+
+      while(!stack.empty()) {
+        console.log('pinosta otettiin: ', stack.pop())
+      }
+
+    </script>
+  </head>
+</html>
