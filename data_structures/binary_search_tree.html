@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      function Node(key, left, right, parent) {
+        this.key = key
+        this.left = null
+        this.right = null
+        this.parent = null
+      }
+
+      function Tree() {
+        this.root = null
+
+        this.insert = (key) => {
+          let node = new Node(key)
+          node.left = node.right = node.parent = null
+
+          // Jos lisättävä solmu on puun ensimmäinen
+          if (this.root === null) {
+            this.root = node
+            return
+          }
+
+          let x = this.root
+          let p
+          while (x != null) {
+            p = x
+            if (node.key < x.key) {
+              x = x.left
+            } else {
+              x = x.right
+            }
+          }
+
+          node.parent = p
+          if (node.key < p.key) {
+            p.left = node
+          } else {
+            p.right = node
+          }
+        }
+      }
+
+      const puu = new Tree()
+      puu.insert(4)
+      puu.insert(6)
+      puu.insert(9)
+      puu.insert(3)
+      puu.insert(5)
+      puu.insert(7)
+      puu.insert(1)
+      puu.insert(2)
+      puu.insert(8)
+
+      console.log(puu.root)
+
+    </script>
+  </head>
+</html>
