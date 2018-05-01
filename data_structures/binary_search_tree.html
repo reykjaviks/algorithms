@@ -16,46 +16,40 @@
         this.insert = (key) => {
           let node = new Node(key)
           node.left = node.right = node.parent = null
-
           // Inserting to an empty tree
           if (this.root === null) {
             this.root = node
             return
           }
-
-          let p
-          let x = this.root
-          while (x != null) {
-            p = x
-            if (node.key < x.key) {
-              x = x.left
+          // Inserting to a non-empty tree
+          let parent
+          let curr = this.root
+          while (curr != null) {
+            parent = curr
+            if (node.key < curr.key) {
+              curr = curr.left
             } else {
-              x = x.right
+              curr = curr.right
             }
           }
-
-          node.parent = p
-          if (node.key < p.key) {
-            p.left = node
+          node.parent = parent
+          if (node.key < parent.key) {
+            parent.left = node
           } else {
-            p.right = node
+            parent.right = node
           }
         }
       }
 
-      const puu = new Tree()
+      const tree = new Tree()
 
-      puu.insert(4)
-      puu.insert(6)
-      puu.insert(9)
-      puu.insert(3)
-      puu.insert(5)
-      puu.insert(7)
-      puu.insert(1)
-      puu.insert(2)
-      puu.insert(8)
+      tree.insert(3)
+      tree.insert(1)
+      tree.insert(2)
+      tree.insert(4)
+      tree.insert(5)
 
-      console.log(puu.root)
+      console.log(tree.root)
 
     </script>
   </head>
