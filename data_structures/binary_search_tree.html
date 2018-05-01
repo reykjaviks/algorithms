@@ -17,14 +17,14 @@
           let node = new Node(key)
           node.left = node.right = node.parent = null
 
-          // Jos lisättävä solmu on puun ensimmäinen
+          // Inserting to an empty tree
           if (this.root === null) {
             this.root = node
             return
           }
 
-          let x = this.root
           let p
+          let x = this.root
           while (x != null) {
             p = x
             if (node.key < x.key) {
@@ -44,6 +44,7 @@
       }
 
       const puu = new Tree()
+
       puu.insert(4)
       puu.insert(6)
       puu.insert(9)
