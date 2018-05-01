@@ -5,17 +5,13 @@
     <script>
       function Node(key, left, right, parent) {
         this.key = key
-        this.left = null
-        this.right = null
-        this.parent = null
+        this.left = this.right = this.parent = null
       }
 
       function Tree() {
         this.root = null
-
         this.insert = (key) => {
           let node = new Node(key)
-          node.left = node.right = node.parent = null
           // Inserting to an empty tree
           if (this.root === null) {
             this.root = node
