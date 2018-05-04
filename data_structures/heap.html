@@ -24,7 +24,7 @@
           return 2*i+2
         }
 
-        // swap(A, i, key) swaps the values of A[x] and A[y]
+        // swap(x, y) swaps the values of A[x] and A[y]
         this.swap = (x, y) => {
           if (A[x] && A[y]) {
             const help = A[x]
@@ -33,7 +33,7 @@
           }
         }
 
-        // heapify(A, i) establish the heap property
+        // heapify(i) establish the heap property
         this.heapify = (i) => {
           let left = this.left(i)
           let right = this.right(i)
