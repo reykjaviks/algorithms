@@ -32,18 +32,18 @@
         }
 
         // heapify(A, i) establish the heap property
-        this.heapify = (A, i) => {
+        this.heapify = (i) => {
           let left = this.left(i)
           let right = this.right(i)
-          if (right < Arr.length) {
+          if (right < A.length) {
             if (A[left] > A[right]) largest = left
             else largest = right
             if (A[i] < A[largest]) {
-              this.swap(A, i, largest)
-              this.heapify(A, largest)
+              this.swap(i, largest)
+              this.heapify(largest)
             }
           } else if (left === A.length && A[i] < A[left]) {
-            this.swap(A, i, left)
+            this.swap(i, left)
           }
         }
       }
