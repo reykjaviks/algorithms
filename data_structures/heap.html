@@ -8,16 +8,18 @@
       // heap-max(A)
       // heap-del-max(A)
 
-      function Heap() {
+      function Heap(A) {
         // Implement the following subroutines:
         // parent(i) return A[i/2]
         this.parent = (i) => {
         }
         // left(i) return 2i
         this.left = (i) => {
+          return A[2*i+1]
         }
         // right(i) return 2i + 1
         this.right = (i) => {
+          return A[2*i+2]
         }
 
         // swap(A, i, key) swaps the values of A[x] and A[y]
@@ -45,6 +47,14 @@
         this.key = key
         this.left = this.right = this.parent = null
       }
+
+      const arr = [16, 14, 10, 8, 7]
+      const heap = new Heap(arr)
+      console.log(heap.left(0))
+      console.log(heap.right(0))
+      console.log(heap.left(1))
+      console.log(heap.right(1))
+      console.log(arr)
 
     </script>
   </head>
