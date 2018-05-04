@@ -15,29 +15,34 @@
         }
         // left(i) return 2i
         this.left = (i) => {
-          return A[2*i+1]
+          return 2*i+1
         }
         // right(i) return 2i + 1
         this.right = (i) => {
-          return A[2*i+2]
+          return 2*i+2
         }
 
         // swap(A, i, key) swaps the values of A[x] and A[y]
-        this.swap = (A, x, y) => {
+        this.swap = (x, y) => {
+          if (A[x] && A[y]) {
+            const help = A[x]
+            A[x] = A[y]
+            A[y] = help
+          }
         }
 
         // heapify(A, i) establish the heap property
-        this.heapify = (Arr, i) => {
+        this.heapify = (A, i) => {
           let left = this.left(i)
           let right = this.right(i)
-          if (right <= Arr.heapSize) {
+          if (right < Arr.length) {
             if (A[left] > A[right]) largest = left
             else largest = right
             if (A[i] < A[largest]) {
               this.swap(A, i, largest)
               this.heapify(A, largest)
             }
-          } else if (left === A.heapSize && A[i] < A[left]) {
+          } else if (left === A.length && A[i] < A[left]) {
             this.swap(A, i, left)
           }
         }
@@ -50,10 +55,8 @@
 
       const arr = [16, 14, 10, 8, 7]
       const heap = new Heap(arr)
-      console.log(heap.left(0))
-      console.log(heap.right(0))
-      console.log(heap.left(1))
-      console.log(heap.right(1))
+      console.log(arr)
+      heap.swap(0, 4)
       console.log(arr)
 
     </script>
