@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset = "utf-8">
+    <script>
+      function Node(key, left, right, parent) {
+        this.key = key
+        this.left = this.right = this.parent = null
+      }
+
+      function Tree() {
+        this.root = null
+
+        this.insert = (key) => {
+          let node = new Node(key)
+          // Inserting to an empty tree
+          if (this.root === null) {
+            this.root = node
+            return
+          }
+          // Inserting to a non-empty tree
+          let parent
+          let curr = this.root
+          while (curr != null) {
+            parent = curr
+            if (node.key < curr.key) {
+              curr = curr.left
+            } else {
+              curr = curr.right
+            }
+          }
+          node.parent = parent
+          if (node.key < parent.key) {
+            parent.left = node
+          } else {
+            parent.right = node
+          }
+          return node
+        }
+
+        this.AVL_insert = (key) => {
+          let node = this.insert(key)
+          let parent = node.parent
+          console.log(parent)
+          while (parent !== null) {
+            
+          }
+        }
+
+        this.height = (node) => {
+          if (this.node === null) {
+            return -1
+          }
+          else return node.height
+        }
+      }
+
+
+      const balance = (node) => {
+        if (true) { // jos jolmu on epätasapainossa
+          const parent = node.parent
+          const subTree = rightRotate(node)
+          if (parent.tree === node) {
+            parent.left = subTree
+          } else {
+            parent.right = subTree
+          }
+        }
+      }
+
+      const rightRotate = (k1) => {
+        const k2 = k1.left
+        k2.parent = k1.parent
+        k1.parent = k2
+        k1.left = k2.right
+        k2.right = k1
+        if (k1.left !== null) {
+          k1.left.parent = k1
+        }
+        // Height calculations
+        return k2
+      }
+
+      const leftRotate = (k1) => {
+        const k2 = k1.right
+        k2.parent = k1.parent
+        k1.parent = k2
+        k1.right = k2.left
+        k2.left = k1
+        if (k1.right !== null) {
+          k1.right.parent = k1
+        }
+        // Height calculations
+        return k2
+      }
+
+      const rightLeftRotate = (k1) => {
+        const k2 = k1.right
+        k1.right = rightRotate(k2)
+        return leftRotate(k1)
+      }
+
+      const leftRightRotate = (k1) => {
+        const k2 = k1.left
+        k1.left = leftRotate(k2)
+        return rightRotate(k1)
+      }
+
+      const tree = new Tree()
+
+      tree.insert(3)
+      tree.insert(1)
+      tree.insert(2)
+      tree.insert(4)
+      tree.insert(5)
+      tree.AVL_insert(10)
+
+    </script>
+  </head>
+</html>
